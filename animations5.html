@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+	  <title>Animations 5</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link type="text/css" href="animations.css" rel="stylesheet">
+	  <style>
+	  .example1 {
+		  display: block;
+		  height: 75px;
+		  width: 75px;
+		  margin: auto;
+	  }
+	  
+	  .example2 {
+		  text-align: center;
+		  font-size: 50px;
+		  font-family: cursive, sans-serif, helvetica;
+		  color: orange;
+		  text-shadow: 2px 2px 8px lightgrey;
+	  }
+	  
+	  .button1, .button2 {
+		  font-size: 20px;
+		  background: #81ff68;
+		  outline: none;
+		  border: none;
+		  border-radius: 20px;
+		  color: grey;
+		  margin: 10px;
+	  }
+	  
+	  </style>
+	  
+	</head>
+	
+	<body>
+	<h1>More Velocity.js (UI)</h1>
+	
+	<h2 style="color: orange;">Click on the element (or the button) to see the animation. Refresh the page to reload all animation.</h2>
+	
+	<h2>Drop Out!</h2>
+	<img class="example1" src="images/drop.png" alt="water droplet">
+	<hr>
+	
+	<h2>Fade Out!</h2>
+	<h3 class="example2">FadeOut!!!</h3>
+	<hr>
+	
+	<h2>Swing!</h2>
+	
+	<img class="example3" src="images/scale.png" alt="stone scale" style="display:block; margin: auto;">
+	
+	<hr>
+	
+	<h2>Flip Out!</h2>
+	
+	<div class="example4" style="width: 50%; margin: auto;">
+	<p>Socrates was born, as far as we know, in Athens around 469 B.C. Our knowledge of his life is sketchy and derives mainly from three contemporary sources, the dialogues of Plato and Xenophon (c. 431 - 355 B.C.), and the plays of Aristophanes (c. 456 - 386 B.C.). </p>
+	
+	<p>According to Plato, Socrates' father was Sophroniscus (a sculptor and stonemason) and his mother was Phaenarete (a midwife). His family was respectable in descent, but humble in means. He appears to have had no more than an ordinary Greek education (reading, writing, gymnastics and music, and, later, geometry and astronomy) before devoting his time almost completely to intellectual interests.</p>
+	</div>
+	
+	<hr>
+	
+	<h2>Swoop In!</h2>
+	<div class="container" style="position: relative; width: 300px; margin: auto;">
+	<button class="button1" onclick="myFunction()">Click Me!</button>
+	
+	<img class="example5" src="images/socrates.jpg" alt="socrates" style="display: none; margin-left: 40%; height: 300px; width: 75%;">
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	
+	<hr>
+	
+	<h2>Stagger Out</h2>
+	
+	
+	<div class="container" style="width: 50%; margin: auto;">
+		<button type="button" class="button2">Click Me!</button>
+		
+		<div class="example6" style="height: 50px; background: #ff686d; text-align: center; font-size: 40px; color: white; margin-bottom: 10px;">More</div>
+		
+		<div class="example6" style="height: 50px; background: #68f9ff; text-align: center; font-size: 40px; color: teal; margin-bottom: 10px;">To</div>
+		
+		<div class="example6" style="height: 50px; background: teal; text-align: center; font-size: 40px; color: white;">Come!</div>
+	</div>
+		
+	
+	
+	
+	<nav>
+	  <ul>
+	    <li><a href="../../../index.html">Home</a></li>
+	    <li><a href="../../photography/photography.html">Photography</a></li>
+	    <li><a href="../../resume/resume.html">Resume</a></li>
+	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+	    <li><a href="../projects.html">Projects</a></li>
+	    <li><a href="../../about.html">About</a></li>
+	  </ul>
+	</nav>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="velocity.js"></script>
+	<script src="ui.js"></script>
+	
+	
+	<script>
+	/*UI*/
+	$('.example1').click(function () {
+    $(this).velocity("transition.bounceDownOut", {
+        delay: 500, duration: 1500
+		});
+	});
+	
+	
+	$('.example2').click(function() {
+		$(this).velocity("transition.fadeOut", {
+			delay: 500, duration: 1000
+		});
+	});
+	
+	$('.example3').click(function() {
+		$(this).velocity("callout.swing", {
+			delay: 500, duration: 1500
+		});
+	});
+	
+	$('.example4').click(function() {
+		$(this).velocity("transition.flipXOut", {
+			delay: 500, duration: 1000
+		});
+	});
+	
+	/*
+	$('.example5').click(function() {
+		$(this).velocity("transition.swoopIn", {
+			delay: 500, duration: 1000
+		});
+	});
+	*/
+	
+	$(document).ready(function() {
+		$(".button1").click(function() {
+			$(".example5")
+			.velocity("transition.swoopIn",{
+				delay: 500, duration: 1000
+				});
+			});
+		});
+	
+	$(document).ready(function() {
+		$(".button2").click(function() {
+			$(".example6").velocity("transition.perspectiveRightOut",
+			{stagger: 250, delay: 500, duration: 1000});
+		});
+	});
+	
+	</script>
+	
+	
+	</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Animation 1</title>
+  <meta charstet="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link type="text/css" href="animations.css" rel="stylesheet">
+</head>
+
+<style>
+  * {
+	  box-sizing: border-box;
+	  }
+	  
+	  h1, h2, h3 {
+		  color: silver;
+		  }
+	 
+	  
+	  /*transition: property duration timing delay*/
+	  
+  #trans {
+	  color: red;
+	  transition: all 1s linear 1s;
+	  display: inline-block;
+	  }
+	  
+  #trans:hover {
+	  color: navy;
+	  font-size: 35px;
+	  background: yellow;
+	  }
+	  
+	  
+  #trans1 {
+	  height: 100px;
+	  width: 100px;
+	  border: 2px solid black;
+	  border-radius: 0;
+	  background: red;
+	  position: relative;
+	  top: 0px;
+	  left: 0px;
+	  transition: all 2s ease-in 1s;
+	  }
+	  
+  #trans1:hover {
+	  height: 200px;
+	  width: 200px;
+	  border-radius: 50%;
+	  background: purple;
+	  top: 100px;
+	  left: 200px;
+	  }
+	  
+  #trans2 {
+	  height: 100px;
+	  width: 200px;
+	  background: darkseagreen;
+	  border: 2px solid navy;
+	  position: relative;
+	  top: 0px;
+	  left: 0px;
+	  transition: all 2s ease-in-out 1s;
+	  }
+	  
+  #trans2:hover {
+	  left: 300px;
+	  width: 500px;
+	  background: maroon;
+	  }
+	  
+  #trans3 {
+	  background-image: url("images/bluestar.png");
+	  background-position: center;
+	  background-size: cover;
+	  height: 100px;
+	  width: 100px;
+	  border: 2px solid transparent;
+	  border-radius: 0px;
+	  position: relative;
+	  left: 300px;
+	  transition: all 2s ease-out 1s;
+	  }
+	  
+  #trans3:hover {
+	  height: 200px;
+	  width: 200px;
+	  border-radius: 50%;
+	  transform: rotateY(360deg);
+	  }
+	  
+  #trans4 {
+	  background: url("images/leftright.png") center no-repeat;
+	  background-size: contain;
+	  height: 100px;
+	  width: 100px;
+	  border: 2px solid orange;
+	  position: relative;
+	  left: 300px;
+	  transition: all 2s ease-out 1s;
+	  }
+	  
+  #trans4:hover {
+	  border: 2px solid red;
+	  transform: rotate(360deg);
+	  }
+	  
+  
+</style>
+
+<body>
+  <h1>Simple (hover) Animations</h1>
+  
+  <h2>Transitions:</h2>
+  
+  <p>The following examples use <b>CSS3 Transitions</b> to change property values over a given duration:</p>
+  
+  
+  <p style="color: orange; font-size: 20px;"><strong>Hover over the elements to see the effect:</strong></p>
+  
+  <hr>
+  
+  <h3>Change text size, color and background color:</h3>
+  
+  <p id="trans">Hover over Me!!!</p>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  
+  <h3>Change size, position, border-radius and background color:</h3>
+  <div id="trans1"></div>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  
+  <h3>Change size, position and background-color:</h3>
+  <div id="trans2"></div>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  
+  <h2>Transitions with Transforms:</h2>
+  
+  <hr>
+  
+  <h3>Make star grow and rotate (3d):</h3>
+  <div id="trans3"></div>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+  
+  <br>
+  <br>
+  <br>
+  
+  <h3>Make arrow rotate (2d):</h3>
+  <div id="trans4"></div>
+  
+  <hr>
+  
+  
+  
+  <nav>
+	  <ul>
+	    <li><a href="../../../index.html">Home</a></li>
+	    <li><a href="../../photography/photography.html">Photography</a></li>
+	    <li><a href="../../resume/resume.html">Resume</a></li>
+	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+	    <li><a href="../projects.html">Projects</a></li>
+	    <li><a href="../../about.html">About</a></li>
+	  </ul>
+	</nav>
+  
+  
+ </body>
+
+</html>

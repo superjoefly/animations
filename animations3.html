@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		
+	  <title>Animations 3</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link type="text/css" href="animations.css" rel="stylesheet">
+	  <link rel="stylesheet" href="animate.css">
+	  <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+	  
+	  
+	  <style>
+		  
+		  a.button1 {
+			  font-size: 20px;
+			  padding: 5px 5px;
+			  border: none;
+			  background: cadetblue;
+			  color: white;
+			  border-radius: 5px;
+			  text-decoration: none;
+			  display: block;
+			  margin: auto;
+			  width: 100px;
+			  text-align: center;
+			  
+			  /*animation-delay: 3s;*/
+			  }
+			  
+		  input {
+			  display: block;
+			  margin: auto;
+			  margin-top: 10px;
+			  }
+			  
+		  .heading {
+			  color:orange;
+			  font-family: 'Arima Madurai', cursive;
+			  text-align: center;
+			  }
+			  
+		  .button2 {
+			  font-size: 20px;
+			  background-color: #f45342;
+			  border: none;
+			  border-radius: 10px;
+			  padding: 5px;
+			  color: white;
+			  outline: none;
+			  cursor: pointer;
+			  display: block;
+			  margin: auto;
+			  }
+			  
+		  .button2:active {
+			  border: 1px solid cadetblue;
+			  }
+			  
+		  #fadein {
+			  width: 75%;
+			  height: 100px;
+			  margin: auto;
+			  /*background: black;*/
+			  color: white;
+			  text-align: center;
+			  line-height: 50px;
+			  font-size: 40px;
+			  padding-top: 20px;
+		  }
+		  
+		  #fadeout {
+			  font-size: 80px;
+			  color: red;
+			  text-align: center;
+			  cursor: pointer;
+		  }
+	  
+	  </style>
+	  
+	</head>
+	
+	<body>
+		
+	<h1>Animate.css</h1>
+	
+	<p>The following animations use Animate.css and jQuery! Click on the buttons (or the element) to see the animation!</p>
+	
+	<hr>
+	
+	<h3>Hinge</h3>
+	
+	<a href="#" class="button1">Click Me!</a>
+	<input type="text" name="fName">
+	
+	<br>
+	<br>
+	<br>
+	<hr>
+		
+	<h3>Zoom In Left</h3>
+        
+    <h2 class="heading">This is Pretty Cool Stuff!!!</h2>
+	
+	<button class="button2">Click Me!</button>
+	
+	<br>
+	<br>
+	<br>
+	<hr>
+	
+	<h3>Swing</h3>
+	
+	<div class="container">
+	  <img class="ninja" src="images/babyninja.png" alt="baby ninja" style="height: 150px; width: 150px; display: block; margin: auto; cursor: pointer;">
+	</div>
+	
+	<hr>
+	<h3>Fade In</h3>
+	
+	<div id="fadein" style="cursor: pointer;">Click Me!</div>
+	
+	<hr>
+	
+	<h3>Roll Out</h3>
+	<img class="blackstar" src="images/blackstar.png" alt="black star" style="display: block; margin: auto;">
+	
+	<hr>
+	
+	<h3>Fade Out Up Big</h3>
+	<p id="fadeout">See Ya!!!</p>
+	
+	
+	
+	
+	
+	<nav>
+	  <ul>
+	    <li><a href="../../../index.html">Home</a></li>
+	    <li><a href="../../photography/photography.html">Photography</a></li>
+	    <li><a href="../../resume/resume.html">Resume</a></li>
+	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+	    <li><a href="../projects.html">Projects</a></li>
+	    <li><a href="../../about.html">About</a></li>
+	  </ul>
+	</nav>
+	
+	
+	
+	
+	<!--Use jQuery to end remove animation class and change animation name-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	
+	<script>
+	
+	$(function() {
+		var animationName = "animated zoomInLeft";
+		var animationend = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$("button.button2").on('click',function() {
+			
+			$('h2[class=heading]').addClass(animationName).one(
+			animationend,function() {
+				$(this).removeClass(animationName);
+				});
+			});
+		});
+	
+	
+	$(function() {
+		var animationName = "animated hinge";
+		var animationend = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$('a.button1').on('click',function() {
+			$('input[name=fName]').addClass(animationName).one(animationend,function() {
+				$(this).removeClass(animationName);
+				});
+			});
+			
+		});
+		
+		
+	$(function() {
+		var animationName = "animated swing";
+		var animationend = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$('img.ninja').on('click',function() {
+			$('img[class=ninja]').addClass(animationName).one(
+			animationend,function() {
+				$(this).removeClass(animationName);
+			});
+		});
+	});
+	
+	
+	$(function() {
+		var animationName = "animated fadeInUp";
+		var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$('div#fadein').on('click',function() {
+			
+			$('div[id=fadein]').addClass(animationName).one(
+			animationEnd,function() {
+				
+				$(this).removeClass(animationName);
+			});
+		});
+	});
+	
+	$(function() {
+		var animationName = "animated rollOut";
+		var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$('img.blackstar').on('click', function() {
+			
+			$('img[class=blackstar]').addClass(animationName).one
+			(animationEnd, function() {
+				$(this).removeClass(animationName);
+			});
+		});
+	});
+	
+	$(function() {
+		var animationName = "animated fadeOutUpBig";
+		var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+		
+		$('p#fadeout').on('click', function() {
+			$('p[id=fadeout]').addClass(animationName).one
+			(animationEnd, function() {
+				$(this).removeClass(animationName);
+			})
+		})
+	})
+	
+	
+	
+	</script>
+	
+	</body>
+
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+	  <title>Animated Images</title>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link type="text/css" href="animations.css" rel="stylesheet" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	  <style>
+		/* entire container, keeps perspective */
+		.flip-container {
+			perspective: 1000px;
+			margin: auto;
+		}
+			/* flip the pane when hovered */
+			.flip-container:hover .flipper, .flip-container.hover .flipper {
+				transform: rotateY(180deg);
+			}
+
+		.flip-container, .front, .back {
+			width: 200px;
+			height: 200px;
+		}
+
+		/* flip speed goes here */
+		.flipper {
+			transition: 0.6s;
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+
+		/* hide back of pane during swap */
+		.front, .back {
+			backface-visibility: hidden;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		/* front pane, placed above back */
+		.front {
+			z-index: 2;
+			/* for firefox 31 */
+			transform: rotateY(0deg);
+		}
+
+		/* back, initially hidden pane */
+		.back {
+			transform: rotateY(180deg);
+		}
+
+		.vertical.flip-container {
+			position: relative;
+		}
+
+		.vertical .back {
+			transform: rotateX(180deg);
+		}
+
+		.vertical.flip-container .flipper {
+			transform-origin: 100% 100px; /* half of height */
+		}
+
+		.vertical.flip-container:hover .flipper {
+			transform: rotateX(-180deg);
+		}
+
+		/*Animated Background Images*/
+
+		#cf7 {
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+			transition: all 1s ease-in-out;
+			background-image: url("images/ninja1.png");
+			background-size: cover;
+		}
+
+		#cf7:hover {
+			background-image: url("images/ninja2.png");
+		}
+
+
+		#cf8_controls {
+			text-align: center;
+		}
+
+		#cf8_controls span {
+			padding-right: 2em;
+			cursor: pointer;
+		}
+
+		#cf8 {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto 10px;
+		}
+
+		#cf8 img {
+			position: absolute;
+			left: 0;
+			transition: opacity 1s ease-in-out;
+			opacity: 0;
+		}
+
+		#cf8 img.opaque {
+			opacity: 1;
+		}
+
+		#cf5 {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+
+		#cf5 img {
+			position: absolute;
+			left: 0;
+			transition: all 1s ease-in-out;
+		}
+
+		#cf5 img.top {
+			transform: scale(0,0);
+			opacity: 0;
+		}
+
+		#cf5:hover img.top {
+			opacity: 1;
+			transform: scale(1,1);
+			transform-origin: top right;
+		}
+
+		#cf5:hover img.bottom {
+			transform: scale(0,0);
+			transform-origin: bottom left;
+		}
+
+		#cf6 {
+			height: 200px;
+			width: 200px;
+			position: relative;
+			margin: 0 auto;
+		}
+
+		#cf6 img {
+			position: absolute;
+			left: 0;
+			transition: all 1s ease-in-out;
+		}
+
+		#cf6 img.top {
+			transform: scale(0,1);
+
+			opacity: 0;
+		}
+
+		#cf6:hover img.top {
+			opacity: 1;
+			transform: scale(1,1);
+		}
+
+		#cf6:hover img.bottom {
+			opacity: 0;
+			transform: rotate(360deg) scale(0,0);
+		}
+
+
+
+
+		/*Crossfade on Hover*/
+		#cf {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+
+		}
+
+		#cf img {
+			position: absolute;
+			left: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		#cf img.bottom {
+			opacity: 0;
+		}
+
+		#cf:hover img.top {
+			opacity: 0;
+		}
+
+		#cf:hover img.bottom {
+			opacity: 1;
+		}
+
+
+		/*Crossfade On Button Click*/
+
+		#cf2 {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+
+		#cf2 img {
+			position: absolute;
+			left: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		#cf2 img.bottom {
+			opacity: 0;
+		}
+
+		#cf2 img.transparent {
+			opacity: 0;
+		}
+
+		#cf2 img.opaque {
+			opacity: 1;
+		}
+
+		#cf_onclick {
+			cursor: pointer;
+		}
+
+
+		/*Crossfade Back and Forth*/
+
+		 #cf3 {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+
+		#cf3 img {
+			position: absolute;
+			left: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+
+		#cf3 img.top {
+			animation: cf3FadeInOut ease-in-out infinite 7s alternate;
+		}
+
+		@keyframes cf3FadeInOut {
+			0% {opacity: 1;}
+			45% {opacity: 1;}
+			55% {opacity: 0;}
+			100% {opacity: 0;}
+		}
+
+		.button {
+			margin-left: 10px;
+		}
+
+
+
+		/*Multiple Images Crossfade Back and Forth*/
+
+		 #cf4a {
+			position: relative;
+			height: 200px;
+			width: 200px;
+			margin: 0 auto;
+		}
+
+		#cf4a img {
+			position: absolute;
+			left: 0;
+		}
+
+
+		#cf4a img {
+			animation: cf4FadeInOut ease-in-out infinite 8s;
+		}
+
+		@keyframes cf4FadeInOut {
+		0% {
+			opacity:1;
+		}
+		17% {
+			opacity:1;
+		}
+		25% {
+			opacity:0;
+		}
+		92% {
+			opacity:0;
+		}
+		100% {
+			opacity:1;
+		}
+		}
+
+		#cf4a img:nth-of-type(1) {
+			animation-delay: 6s;
+		}
+		#cf4a img:nth-of-type(2) {
+			animation-delay: 4s;
+		}
+		#cf4a img:nth-of-type(3) {
+			animation-delay: 2s;
+		}
+		#cf4a img:nth-of-type(4) {
+			animation-delay: 0;
+		}
+
+		</style>
+
+	</head>
+
+	<body>
+		<h1>Animated Images</h1>
+
+		<h2>Vertical Image Rotation</h2>
+
+		<h3>Rotate on Hover</h3>
+
+		<div class="vertical flip-container" ontouchstart="this.classlist.toggle('hover');">
+		<div class="flipper">
+			<div class="vertical front">
+			<img id="peng1" src="images/lizard.png" alt="lizard" height="200px" width="200px">
+			</div>
+			<div class="vertical back">
+			<img id="peng2" src="images/lizard2.png" alt="lizard" height="200px" width="200px">
+			</div>
+		</div>
+		</div>
+
+		<hr />
+
+		<h2>Animating Background Image</h2>
+
+		<h3>Transition (on hover)</h3>
+
+		<div id="cf7"></div>
+
+		<hr />
+
+		<h3>Fading Between Images (on click - jQuery)</h3>
+
+		<div id="cf8" class="shadow">
+			<img class="opaque" src="images/ninja1.png" alt="ninja" height="200" width="200" />
+			<img src="images/ninja2.png" alt="ninja" height="200" width="200" />
+			<img src="images/ninja3.png" alt="ninja" height="200" width="200" />
+			<img src="images/ninja4.png" alt="ninja" height="200" width="200" />
+		</div>
+
+		<div id="cf8_controls">
+			<span class="selected">Image 1</span>
+			<span>Image 2</span>
+			<span>Image 3</span>
+			<span>Image 4</span>
+		</div>
+
+		<hr />
+
+		<h2>Image Zoom In and Out</h2>
+
+		<h3>Zoom In and Out</h3>
+
+		<div id="cf5">
+			<img class="top" src="images/penguin.png" alt="penguin" height="200" width="200" />
+			<img class="bottom" src="images/penguin2.png" alt="penguin" height="200" width="200"/>
+		</div>
+
+		<hr />
+
+		<h3>Zoom with Rotate</h3>
+
+		<div id="cf6">
+			<img class="top" src="images/penguin.png" alt="penguin" height="200" width="200" />
+			<img class="bottom" src="images/penguin2.png" alt="penguin" height="200" width="200" />
+		</div>
+
+		<hr />
+
+
+		<h2>Fade Image Into Another</h2>
+
+		<h3>Fade on Hover:</h3>
+
+		<div id="cf">
+		<img class="bottom" src="images/monkey1.png" alt="monkey" height="200" width="200">
+		<img class="top" src="images/monkey2.png" alt="monkey" height="200" width="200">
+		</div>
+
+		<hr>
+
+		<h3>Fade On Button Click (jQuery)</h3>
+
+		<button type="button" id="cf_onclick" class="button">Click Me!</button>
+
+		<div id="cf2" class="shadow">
+		<img class="bottom" src="images/monkey1.png" alt="monkey" height="200" width="200">
+		<img class="top" src="images/monkey2.png" alt="monkey" height="200" width="200">
+		</div>
+
+		<hr>
+
+
+		<h3>Images Fading Back and Forth (CSS Alternate) Using @keyframes</h3>
+
+		<div id="cf3">
+		<img class="bottom" src="images/penguin.png" alt="penguin" height="200" width="200">
+		<img class="top" src="images/penguin2.png" alt="penguin" height="200" width="200">
+		</div>
+
+		<hr>
+
+		<h3>4 Images Crossfading Using @keyframes</h3>
+
+		<div id="cf4a">
+		<img src="images/penguin.png" alt="penguin" height="200" width="200">
+		<img src="images/penguin2.png" alt="penguin" height="200" width="200">
+		<img src="images/penguin3.png" alt="penguin" height="200" width="200">
+		<img src="images/penguin4.png" alt="penguin" height="200" width="200">
+		</div>
+
+		<script>
+		$(document).ready(function() {
+			$("#cf8_controls").on('click', 'span', function() {
+				$("#cf8 img").removeClass("opaque");
+
+				var newImage = $(this).index();
+
+				$("#cf8 img").eq(newImage).addClass("opaque");
+
+				$("#cf8_controls span").removeClass("selected");
+				$(this).addClass("selected");
+			});
+		});
+		</script>
+
+		<script>
+		$(function() {
+			$("#cf_onclick").click(function() {
+				$("#cf2 img.top").toggleClass("transparent");
+				$("#cf2 img.bottom").toggleClass("opaque");
+			});
+		});
+		</script>
+
+
+
+
+
+
+
+		<nav>
+			  <ul>
+			    <li><a href="../../../index.html">Home</a></li>
+			    <li><a href="../../photography/photography.html">Photography</a></li>
+			    <li><a href="../../resume/resume.html">Resume</a></li>
+			    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+			    <li><a href="../projects.html">Projects</a></li>
+			    <li><a href="../../about/about.html">About</a></li>
+			  </ul>
+			</nav>
+
+	</body>
+
+</html>
