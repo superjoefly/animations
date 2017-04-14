@@ -317,6 +317,29 @@
 			animation-delay: 0;
 		}
 
+		.backbutton {
+			color: black;
+			background: silver;
+			text-decoration: none;
+			font-size: 20px;
+			padding: 5px 10px;
+			margin: 10px;
+			display: inline-block;
+			border-radius: 10px;
+			float: left;
+			transition: all .25s;
+		}
+
+	  .backbutton:hover {
+			background: navy;
+			color: silver;
+		}
+
+		.clearfix {
+			clear: both;
+		}
+
+
 		</style>
 
 	</head>
@@ -429,6 +452,12 @@
 		<img src="images/penguin4.png" alt="penguin" height="200" width="200">
 		</div>
 
+		<hr />
+
+		<a href="animations5.html" class="backbutton">Back</a>
+		<a href="animations.html" class="backbutton" style="float: right;">Animations</a>
+	  <div class="clearfix"></div>
+
 		<script>
 		$(document).ready(function() {
 			$("#cf8_controls").on('click', 'span', function() {
@@ -460,15 +489,16 @@
 
 
 		<nav>
-			  <ul>
-			    <li><a href="../../../index.html">Home</a></li>
-			    <li><a href="../../photography/photography.html">Photography</a></li>
-			    <li><a href="../../resume/resume.html">Resume</a></li>
-			    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
-			    <li><a href="../projects.html">Projects</a></li>
-			    <li><a href="../../about/about.html">About</a></li>
-			  </ul>
-			</nav>
+		  <ul>
+		    <li><a href="../../../index.html">Home</a></li>
+				<li><a href="../../resume/resume.html">Resume</a></li>
+				<li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+		    <li><a href="../projects.html">Projects</a></li>
+		    <li><a href="../../about/about.html">About</a></li>
+
+				<!-- <li><a href="../../photography/photography.html">Photography</a></li> -->
+		  </ul>
+		</nav>
 
 	</body>
 

@@ -2,13 +2,13 @@
 
 <html>
 	<head>
-		
+
 	  <title>Animations 4</title>
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <link type="text/css" href="animations.css" rel="stylesheet">
 	  <style>
-		  
+
 	  .example1 {
 		  width: 100px;
 		  height: 100px;
@@ -17,7 +17,7 @@
 		  margin: 20px auto;
 		  position: relative;
 	  }
-	  
+
 	  .example2 {
 		  height: 100px;
 		  width: 200px;
@@ -25,7 +25,7 @@
 		  margin: 20px auto;
 		  background: red;
 	  }
-	  
+
 	  .example3 {
 		  height: 100px;
 		  width: 100px;
@@ -34,7 +34,7 @@
 		  border-radius: 50%;
 		  position: relative;
 	  }
-	  
+
 	  .example4 {
 		  height: 200px;
 		  width: 100px;
@@ -42,7 +42,7 @@
 		  margin: 20px auto;
 		  position: relative;
 	  }
-	  
+
 	  .example5 {
 			height: 20px;
 			width: 500px;
@@ -50,121 +50,149 @@
 			border-radius: 20px;
 			margin: 20px auto;
 		}
-	  
+
+		.backbutton {
+			color: black;
+			background: silver;
+			text-decoration: none;
+			font-size: 20px;
+			padding: 5px 10px;
+			margin: 10px;
+			display: inline-block;
+			border-radius: 10px;
+			float: left;
+			transition: all .25s;
+		}
+
+		.backbutton:hover {
+			background: navy;
+			color: silver;
+		}
+
+
+		.clearfix {
+			clear: both;
+		}
+
 	  </style>
-	  
+
 	</head>
-	
+
 	<body>
-		
+
 		<h1>Velocity.js</h1>
-		
+
 	<p>Opacity:</p>
 	<div class="example1"></div>
-	
+
 	<hr>
 	<p>Scale:</p>
 	<div class="example2"></div>
-	
+
 	<br>
 	<br>
-	
+
 	<hr>
 	<p>Position:</p>
 	<div class="example3"></div>
-	
+
 	<div class="example4"></div>
-	
+
 	<br>
 	<br>
-	
+
 	<hr>
-	
+
 	<br>
 	<br>
 	<br>
-	
+
 	<p>Loop: (10)</p>
-	
+
 	<!--<div class="example5">
-	
+
 	</div>-->
-	
+
 	<img class="example5" src="images/leftright2.png" alt="left right arrow animation" style="width:75%; height: 50px; display: block; margin: auto;">
-		
+
 		<br>
 		<br>
 		<br>
-		
-		
-	<nav>
-	  <ul>
-	    <li><a href="../../../index.html">Home</a></li>
-	    <li><a href="../../photography/photography.html">Photography</a></li>
-	    <li><a href="../../resume/resume.html">Resume</a></li>
-	    <li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
-	    <li><a href="../projects.html">Projects</a></li>
-	    <li><a href="../../about.html">About</a></li>
-	  </ul>
-	</nav>
-	
-	
-	
+
+		<a href="animations3.html" class="backbutton">Back</a>
+		<a href="animations5.html" class="backbutton" style="float: right;">Next</a>
+    <div class="clearfix"></div>
+
+
+		<nav>
+		  <ul>
+		    <li><a href="../../../index.html">Home</a></li>
+				<li><a href="../../resume/resume.html">Resume</a></li>
+				<li><a href="../../portfolio/portfolio.html">Portfolio</a></li>
+		    <li><a href="../projects.html">Projects</a></li>
+		    <li><a href="../../about/about.html">About</a></li>
+
+				<!-- <li><a href="../../photography/photography.html">Photography</a></li> -->
+		  </ul>
+		</nav>
+
+
+
 	<script src="velocity.js"></script>
 	<script src="ui.js"></script>
-	
+
 	<script>
-	Velocity(document.getElementsByClassName("example1"), {opacity: 0.2}, 
+	Velocity(document.getElementsByClassName("example1"), {opacity: 0.2},
 	{duration:2000, delay:1000, loop:1});
-	
-	
-	
-		
-	Velocity(document.getElementsByClassName("example2"), 
+
+
+
+
+	Velocity(document.getElementsByClassName("example2"),
 	{scale:1.5},
 	{duration:2000, delay: 6000,});
-	
+
 	Velocity(document.getElementsByClassName("example2"),
 	{scale:1},
 	{duration:2000});
-	
-	
+
+
 	/*Chained*/
 	Velocity(document.getElementsByClassName("example3"),
-	{left: 200, top: 50, backgroundColor: "#abffa0"}, 
+	{left: 200, top: 50, backgroundColor: "#abffa0"},
 	{duration: 2000, delay: 10000});
-	
+
 	Velocity(document.getElementsByClassName("example3"),
 	{left: -200, top: 50, backgroundColor: "#f4dc42"},
 	{duration: 2000, delay: 500});
-	
+
 	Velocity(document.getElementsByClassName("example3"),
 	{left: 0, top: 0, backgroundColor: "#f44242"},
 	{duration: 1000, delay: 500});
-	
-	
+
+
 	/*Chained*/
 	Velocity(document.getElementsByClassName("example4"),
 	{right: 200, top: 50, backgroundColor: "#f44268", height: 50, width: 50, borderRadius: 50},
 	{duration: 2000, delay: 10000});
-	
+
 	Velocity(document.getElementsByClassName("example4"),
 	{right: 0, top: 50, backgroundColor: "#4286f4", width: 300},
 	{duration: 2000, delay: 500});
-	
+
 	Velocity(document.getElementsByClassName("example4"),
 	{top: 0, backgroundColor: "#42f4d4", width: 500},
 	{duration: 1000, delay: 500});
-	
-	
-	
-	
+
+
+
+
 	Velocity(document.getElementsByClassName("example5"),
 	{width: 75, height: 75, borderRadius: 50, backgroundColor: "#ffc1bc", backgroundColor: "#c363c6"},
 	{duration: 3000, delay: 1000, loop: 5});
 
 	</script>
-	
+
 	</body>
 
 </html>

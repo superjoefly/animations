@@ -15,13 +15,13 @@ margin-bottom: 50px;
 
 h1, h2, h3 {
 color: silver;
-margin-left: 10px;
+padding: 10px;
 }
 
 p {
-color: #9deac5;
+color: beige;
 font-size: 1.2em;
-margin-left: 10px;
+padding: 10px;
 }
 
 hr {
@@ -37,59 +37,49 @@ from {border: 1px solid silver;}
 to {border: 1px solid red;}
 }
 
-ul{
-list-style-type: none;
-margin-left: 10px;;
-padding: 0;
+#container img {
+  width: 200px;
+  height: 150px;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  border-radius: 50%;
 }
 
-ul li {
 
+#container img:hover {
+  box-shadow: 2px 2px 4px white;
 }
 
-ul li a {
-text-decoration: none;
-font-size: 1.5em;
-transition: all .25s ease-in;
+figure {
+  /*box-shadow: 2px 2px 4px grey;*/
+  width: 200px;
+  height: 150px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 
-ul li a:link {
-color: cadetblue;
+figcaption {
+  text-align: center;
+  font-size: 30px;
 }
 
-ul li a:visited {
-color: silver;
+@media all and (min-width: 600px) {
+#container img {
+    width: 300px;
+    height: 250px;
+  }
+figure {
+  width: 300px;
+  height: 250px;
+}
 }
 
-ul li a:hover {
-color: beige;
-}
-
-ul li a:active {
-color: white;
-}
-
-/*
-.button {
-background-color: #42f4d7;
-border: 2px solid silver;
-color: navy;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;
-cursor: pointer;
-position: absolute;
-right: 0;
-bottom: 20px;
-transition: all .5s ease-in-out;
-}
-*/
 
 			/*NavBar*/
-			
-nav {
 
+nav {
+/*width: 100%;*/
 }
 
 nav ul {
@@ -121,39 +111,25 @@ float: right;
 }
 
 nav ul li a {
-padding: 14px 16px;
 text-decoration: none;
+color: white;
+font-size: 1.2em;
+padding: 10px;
+}
+
+nav ul li a:hover {
+  color: orange;
 }
 
 @media all and (max-width: 600px) {
-ul li a {
+nav ul li a {
 font-size: 1em;
-padding: 5px 0;
+padding: 5px;
+}
+nav ul li:nth-child(4) {
+  display: none;
 }
 p {
 font-size: 1em;
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
